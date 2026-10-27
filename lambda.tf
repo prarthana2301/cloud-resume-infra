@@ -58,7 +58,7 @@ resource "aws_lambda_function_url" "visitor" {
   authorization_type = "NONE"
 
   cors {
-    allow_origins = [var.allowed_origin]
+    allow_origins = ["https://${aws_cloudfront_distribution.site.domain_name}"]
     allow_methods = ["GET"]
     allow_headers = ["content-type"]
   }
